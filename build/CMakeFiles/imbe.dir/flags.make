@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/steve/Projects/imbe-vhf/inc
+CXX_INCLUDES = -I/home/steve/Projects/imbe-mod/inc
 
 CXX_FLAGS = -std=gnu++11 -O3 -Wall -Wextra -flto=auto
 

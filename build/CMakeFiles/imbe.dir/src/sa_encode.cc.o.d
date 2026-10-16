@@ -1,7 +1,7 @@
 CMakeFiles/imbe.dir/src/sa_encode.cc.o: \
- /home/steve/Projects/imbe-vhf/src/sa_encode.cc \
- /usr/include/stdc-predef.h /home/steve/Projects/imbe-vhf/inc/typedef.h \
- /home/steve/Projects/imbe-vhf/inc/typedefs.h \
+ /home/steve/Projects/imbe-mod/src/sa_encode.cc \
+ /usr/include/stdc-predef.h /home/steve/Projects/imbe-mod/inc/typedef.h \
+ /home/steve/Projects/imbe-mod/inc/typedefs.h \
  /usr/lib/gcc/x86_64-pc-linux-gnu/16/include/float.h \
  /usr/lib/gcc/x86_64-pc-linux-gnu/16/include/limits.h \
  /usr/lib/gcc/x86_64-pc-linux-gnu/16/include/syslimits.h \
@@ -14,16 +14,16 @@ CMakeFiles/imbe.dir/src/sa_encode.cc.o: \
  /usr/include/linux/limits.h \
  /usr/include/bits/pthread_stack_min-dynamic.h \
  /usr/include/bits/posix2_lim.h /usr/include/bits/xopen_lim.h \
- /usr/include/bits/uio_lim.h /home/steve/Projects/imbe-vhf/inc/globals.h \
- /home/steve/Projects/imbe-vhf/inc/basic_op.h \
- /home/steve/Projects/imbe-vhf/inc/imbe.h \
- /home/steve/Projects/imbe-vhf/inc/typedef.h \
- /home/steve/Projects/imbe-vhf/inc/tbls.h \
- /home/steve/Projects/imbe-vhf/inc/qnt_sub.h \
- /home/steve/Projects/imbe-vhf/inc/sa_encode.h \
- /home/steve/Projects/imbe-vhf/inc/aux_sub.h \
- /home/steve/Projects/imbe-vhf/inc/dsp_sub.h \
- /home/steve/Projects/imbe-vhf/inc/math_sub.h /usr/include/stdio.h \
+ /usr/include/bits/uio_lim.h /home/steve/Projects/imbe-mod/inc/globals.h \
+ /home/steve/Projects/imbe-mod/inc/basic_op.h \
+ /home/steve/Projects/imbe-mod/inc/imbe.h \
+ /home/steve/Projects/imbe-mod/inc/typedef.h \
+ /home/steve/Projects/imbe-mod/inc/tbls.h \
+ /home/steve/Projects/imbe-mod/inc/qnt_sub.h \
+ /home/steve/Projects/imbe-mod/inc/sa_encode.h \
+ /home/steve/Projects/imbe-mod/inc/aux_sub.h \
+ /home/steve/Projects/imbe-mod/inc/dsp_sub.h \
+ /home/steve/Projects/imbe-mod/inc/math_sub.h /usr/include/stdio.h \
  /usr/lib/gcc/x86_64-pc-linux-gnu/16/include/stddef.h \
  /usr/lib/gcc/x86_64-pc-linux-gnu/16/include/stdarg.h \
  /usr/include/bits/types.h /usr/include/bits/typesizes.h \
@@ -65,15 +65,15 @@ CMakeFiles/imbe.dir/src/sa_encode.cc.o: \
  /usr/include/bits/atomic_wide_counter.h /usr/include/bits/struct_mutex.h \
  /usr/include/bits/struct_rwlock.h /usr/include/alloca.h \
  /usr/include/bits/stdlib-bsearch.h /usr/include/bits/stdlib-float.h \
- /home/steve/Projects/imbe-vhf/inc/encode.h \
- /home/steve/Projects/imbe-vhf/inc/imbe_vocoder.h \
+ /home/steve/Projects/imbe-mod/inc/encode.h \
+ /home/steve/Projects/imbe-mod/inc/imbe_vocoder.h \
  /usr/lib/gcc/x86_64-pc-linux-gnu/16/include/stdint.h \
  /usr/include/stdint.h /usr/include/bits/wchar.h \
  /usr/include/bits/stdint-uintn.h /usr/include/bits/stdint-least.h \
  /usr/include/string.h /usr/include/strings.h \
- /home/steve/Projects/imbe-vhf/inc/imbe.h \
- /home/steve/Projects/imbe-vhf/inc/dsp_sub.h \
- /home/steve/Projects/imbe-vhf/inc/basic_op.h \
- /home/steve/Projects/imbe-vhf/inc/math_sub.h \
- /home/steve/Projects/imbe-vhf/inc/encode.h \
- /home/steve/Projects/imbe-vhf/inc/decode.h
+ /home/steve/Projects/imbe-mod/inc/imbe.h \
+ /home/steve/Projects/imbe-mod/inc/dsp_sub.h \
+ /home/steve/Projects/imbe-mod/inc/basic_op.h \
+ /home/steve/Projects/imbe-mod/inc/math_sub.h \
+ /home/steve/Projects/imbe-mod/inc/encode.h \
+ /home/steve/Projects/imbe-mod/inc/decode.h

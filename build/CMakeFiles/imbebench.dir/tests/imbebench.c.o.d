@@ -1,5 +1,5 @@
 CMakeFiles/imbebench.dir/tests/imbebench.c.o: \
- /home/steve/Projects/imbe-vhf/tests/imbebench.c \
+ /home/steve/Projects/imbe-mod/tests/imbebench.c \
  /usr/include/stdc-predef.h /usr/include/inttypes.h \
  /usr/include/features.h /usr/include/features-time64.h \
  /usr/include/bits/wordsize.h /usr/include/bits/timesize.h \
@@ -45,4 +45,4 @@ CMakeFiles/imbebench.dir/tests/imbebench.c.o: \
  /usr/include/time.h /usr/include/bits/time.h \
  /usr/include/bits/types/struct_tm.h \
  /usr/include/bits/types/struct_itimerspec.h \
- /home/steve/Projects/imbe-vhf/inc/imbe_vocoder_wrapper.h
+ /home/steve/Projects/imbe-mod/inc/imbe_vocoder_wrapper.h

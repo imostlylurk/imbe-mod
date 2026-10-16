@@ -4,7 +4,7 @@
 # compile C with /usr/bin/cc
 C_DEFINES = 
 
-C_INCLUDES = -I/home/steve/Projects/imbe-vhf/inc
+C_INCLUDES = -I/home/steve/Projects/imbe-mod/inc
 
 C_FLAGS = -std=gnu11 -O2
 

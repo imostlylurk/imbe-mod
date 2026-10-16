@@ -1,7 +1,7 @@
 CMakeFiles/imbe.dir/src/uv_synt.cc.o: \
- /home/steve/Projects/imbe-vhf/src/uv_synt.cc /usr/include/stdc-predef.h \
- /home/steve/Projects/imbe-vhf/inc/typedef.h \
- /home/steve/Projects/imbe-vhf/inc/typedefs.h \
+ /home/steve/Projects/imbe-mod/src/uv_synt.cc /usr/include/stdc-predef.h \
+ /home/steve/Projects/imbe-mod/inc/typedef.h \
+ /home/steve/Projects/imbe-mod/inc/typedefs.h \
  /usr/lib/gcc/x86_64-pc-linux-gnu/16/include/float.h \
  /usr/lib/gcc/x86_64-pc-linux-gnu/16/include/limits.h \
  /usr/lib/gcc/x86_64-pc-linux-gnu/16/include/syslimits.h \
@@ -14,17 +14,17 @@ CMakeFiles/imbe.dir/src/uv_synt.cc.o: \
  /usr/include/linux/limits.h \
  /usr/include/bits/pthread_stack_min-dynamic.h \
  /usr/include/bits/posix2_lim.h /usr/include/bits/xopen_lim.h \
- /usr/include/bits/uio_lim.h /home/steve/Projects/imbe-vhf/inc/basic_op.h \
- /home/steve/Projects/imbe-vhf/inc/imbe.h \
- /home/steve/Projects/imbe-vhf/inc/typedef.h \
- /home/steve/Projects/imbe-vhf/inc/aux_sub.h \
- /home/steve/Projects/imbe-vhf/inc/dsp_sub.h \
- /home/steve/Projects/imbe-vhf/inc/math_sub.h \
- /home/steve/Projects/imbe-vhf/inc/uv_synt.h \
- /home/steve/Projects/imbe-vhf/inc/rand_gen.h \
- /home/steve/Projects/imbe-vhf/inc/tbls.h \
- /home/steve/Projects/imbe-vhf/inc/encode.h \
- /home/steve/Projects/imbe-vhf/inc/imbe_vocoder.h \
+ /usr/include/bits/uio_lim.h /home/steve/Projects/imbe-mod/inc/basic_op.h \
+ /home/steve/Projects/imbe-mod/inc/imbe.h \
+ /home/steve/Projects/imbe-mod/inc/typedef.h \
+ /home/steve/Projects/imbe-mod/inc/aux_sub.h \
+ /home/steve/Projects/imbe-mod/inc/dsp_sub.h \
+ /home/steve/Projects/imbe-mod/inc/math_sub.h \
+ /home/steve/Projects/imbe-mod/inc/uv_synt.h \
+ /home/steve/Projects/imbe-mod/inc/rand_gen.h \
+ /home/steve/Projects/imbe-mod/inc/tbls.h \
+ /home/steve/Projects/imbe-mod/inc/encode.h \
+ /home/steve/Projects/imbe-mod/inc/imbe_vocoder.h \
  /usr/lib/gcc/x86_64-pc-linux-gnu/16/include/stdint.h \
  /usr/include/stdint.h /usr/include/bits/types.h \
  /usr/include/bits/typesizes.h /usr/include/bits/time64.h \
@@ -33,9 +33,9 @@ CMakeFiles/imbe.dir/src/uv_synt.cc.o: \
  /usr/include/string.h \
  /usr/lib/gcc/x86_64-pc-linux-gnu/16/include/stddef.h \
  /usr/include/bits/types/locale_t.h /usr/include/bits/types/__locale_t.h \
- /usr/include/strings.h /home/steve/Projects/imbe-vhf/inc/imbe.h \
- /home/steve/Projects/imbe-vhf/inc/dsp_sub.h \
- /home/steve/Projects/imbe-vhf/inc/basic_op.h \
- /home/steve/Projects/imbe-vhf/inc/math_sub.h \
- /home/steve/Projects/imbe-vhf/inc/encode.h \
- /home/steve/Projects/imbe-vhf/inc/decode.h
+ /usr/include/strings.h /home/steve/Projects/imbe-mod/inc/imbe.h \
+ /home/steve/Projects/imbe-mod/inc/dsp_sub.h \
+ /home/steve/Projects/imbe-mod/inc/basic_op.h \
+ /home/steve/Projects/imbe-mod/inc/math_sub.h \
+ /home/steve/Projects/imbe-mod/inc/encode.h \
+ /home/steve/Projects/imbe-mod/inc/decode.h

@@ -1,7 +1,7 @@
 CMakeFiles/imbe.dir/src/ch_encode.cc.o: \
- /home/steve/Projects/imbe-vhf/src/ch_encode.cc \
- /usr/include/stdc-predef.h /home/steve/Projects/imbe-vhf/inc/typedef.h \
- /home/steve/Projects/imbe-vhf/inc/typedefs.h \
+ /home/steve/Projects/imbe-mod/src/ch_encode.cc \
+ /usr/include/stdc-predef.h /home/steve/Projects/imbe-mod/inc/typedef.h \
+ /home/steve/Projects/imbe-mod/inc/typedefs.h \
  /usr/lib/gcc/x86_64-pc-linux-gnu/16/include/float.h \
  /usr/lib/gcc/x86_64-pc-linux-gnu/16/include/limits.h \
  /usr/lib/gcc/x86_64-pc-linux-gnu/16/include/syslimits.h \
@@ -14,9 +14,9 @@ CMakeFiles/imbe.dir/src/ch_encode.cc.o: \
  /usr/include/linux/limits.h \
  /usr/include/bits/pthread_stack_min-dynamic.h \
  /usr/include/bits/posix2_lim.h /usr/include/bits/xopen_lim.h \
- /usr/include/bits/uio_lim.h /home/steve/Projects/imbe-vhf/inc/globals.h \
- /home/steve/Projects/imbe-vhf/inc/imbe.h \
- /home/steve/Projects/imbe-vhf/inc/typedef.h \
- /home/steve/Projects/imbe-vhf/inc/basic_op.h \
- /home/steve/Projects/imbe-vhf/inc/ch_encode.h \
- /home/steve/Projects/imbe-vhf/inc/aux_sub.h
+ /usr/include/bits/uio_lim.h /home/steve/Projects/imbe-mod/inc/globals.h \
+ /home/steve/Projects/imbe-mod/inc/imbe.h \
+ /home/steve/Projects/imbe-mod/inc/typedef.h \
+ /home/steve/Projects/imbe-mod/inc/basic_op.h \
+ /home/steve/Projects/imbe-mod/inc/ch_encode.h \
+ /home/steve/Projects/imbe-mod/inc/aux_sub.h
