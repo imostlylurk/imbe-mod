@@ -1,8 +1,9 @@
-# imbe-vhf
+# imbe-mod
 
-Optimised IMBE (Improved Multi-Band Excitation) vocoder for P25-style
-4400 bps digital voice, derived from Pavel Yazev's fixed-point IMBE
-encoder/decoder as vendored by op25 (gr-op25_repeater/lib/imbe_vocoder).
+imbe-mod: optimised IMBE (Improved Multi-Band Excitation) vocoder for
+P25-style 4400 bps digital voice, derived from Pavel Yazev's fixed-point
+IMBE encoder/decoder as vendored by op25
+(gr-op25_repeater/lib/imbe_vocoder).
 GPL v3 or later - see the source headers.
 
 Sibling project of [codec2-vhf](https://github.com/imostlylurk/codec2-vhf),
