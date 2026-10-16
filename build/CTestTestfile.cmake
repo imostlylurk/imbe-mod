@@ -6,3 +6,5 @@
 # testing this directory and lists subdirectories to be tested as well.
 add_test(imbebench "/home/steve/Projects/imbe-mod/build/imbebench" "--selftest")
 set_tests_properties(imbebench PROPERTIES  _BACKTRACE_TRIPLES "/home/steve/Projects/imbe-mod/CMakeLists.txt;21;add_test;/home/steve/Projects/imbe-mod/CMakeLists.txt;0;")
+add_test(golden_decode "/home/steve/Projects/imbe-mod/tests/golden_decode.sh")
+set_tests_properties(golden_decode PROPERTIES  _BACKTRACE_TRIPLES "/home/steve/Projects/imbe-mod/CMakeLists.txt;22;add_test;/home/steve/Projects/imbe-mod/CMakeLists.txt;0;")

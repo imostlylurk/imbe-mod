@@ -21,7 +21,7 @@ void imbe_free(void *v)
 static void pack_words(const int16_t *w, uint8_t *out)
 {
     /* 8 words x 11 bits = 88 bits, word 0 in the LOW 11 bits,
-       big-endian byte order (same convention as the vocoder.py tool).
+       big-endian byte order.
        NOTE: needs >64 bits - use __int128. */
     unsigned __int128 all = 0;
     for (int i = 7; i >= 0; i--)

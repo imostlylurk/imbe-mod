@@ -19,3 +19,4 @@ target_compile_options(imbebench PRIVATE -O2)
 
 enable_testing()
 add_test(NAME imbebench COMMAND imbebench --selftest)
+add_test(NAME golden_decode COMMAND ${CMAKE_SOURCE_DIR}/tests/golden_decode.sh)
