@@ -3,6 +3,7 @@
  */
 
 #include <stdint.h>
+#include <string.h>
 #include "imbe_vocoder.h"
 #include "imbe_vocoder_wrapper.h"
 
@@ -18,27 +19,38 @@ void imbe_free(void *v)
     delete (imbe_vocoder *)v;
 }
 
+/* Standard IMBE 88-bit prioritized info stream: u0..u3 are 12-bit
+   words, u4..u6 11-bit, u7 7-bit; u0's MSB is the first bit of the
+   frame, big-endian byte order.  (The previous 8x11-bit packing
+   truncated the top bit of u0..u3 - the four lowest-priority
+   spectral bits of each frame - on ~half of all frames; forwarded
+   from imbe-mod2.) */
+static const int word_bits[8] = {12, 12, 12, 12, 11, 11, 11, 7};
+
 static void pack_words(const int16_t *w, uint8_t *out)
 {
-    /* 8 words x 11 bits = 88 bits, word 0 in the LOW 11 bits,
-       big-endian byte order.
-       NOTE: needs >64 bits - use __int128. */
-    unsigned __int128 all = 0;
-    for (int i = 7; i >= 0; i--)
-        all = (all << 11) | (unsigned)(w[i] & 0x7FF);
-    for (int i = 0; i < 11; i++)
-        out[i] = (uint8_t)((all >> (8 * (10 - i))) & 0xFF);
+    int bit = 0;
+    memset(out, 0, 11);
+    for (int i = 0; i < 8; i++)
+        for (int k = word_bits[i] - 1; k >= 0; k--)
+        {
+            out[bit >> 3] |= ((w[i] >> k) & 1) << (7 - (bit & 7));
+            bit++;
+        }
 }
 
 static void unpack_words(const uint8_t *in, int16_t *w)
 {
-    unsigned __int128 all = 0;
-    for (int i = 0; i < 11; i++)
-        all = (all << 8) | in[i];
+    int bit = 0;
     for (int i = 0; i < 8; i++)
     {
-        w[i] = (int16_t)(all & 0x7FF);
-        all >>= 11;
+        int v = 0;
+        for (int k = 0; k < word_bits[i]; k++)
+        {
+            v = (v << 1) | ((in[bit >> 3] >> (7 - (bit & 7))) & 1);
+            bit++;
+        }
+        w[i] = (int16_t)v;
     }
 }
 

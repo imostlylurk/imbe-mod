@@ -12,6 +12,6 @@ check() { # frames-file expected-sha
     if [ "$got" != "$2" ]; then echo "$1: decode hash mismatch: $got"; exit 1; fi
     echo "$1: decode hash OK"
 }
-check testdata/golden_short.frames    36db9b10dd894f3b3730b471b4fc95953fda0dc3e578c9e3426048aa0e924ff0
-check testdata/golden_long.frames 66ca21ede2508d45a91b4851e105551de03424cdc692296f89e5983a77dbff1f
+check testdata/golden_short.frames    3ef8089a18e23423e0a0ae1c1b3f11437bf5f022bce35197ae2e555b7a284bbf
+check testdata/golden_long.frames 04363a74cd3f5d4509d1c41655ce4709f02d103e7fa7026989d0af14825ddd55
 echo "golden decode: ALL OK"
