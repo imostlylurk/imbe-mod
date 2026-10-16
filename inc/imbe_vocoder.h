@@ -57,6 +57,12 @@ private:
 	Word16 wi_array[FFTLENGTH / 2 + 1];
 	Word16 pitch_est_buf[PITCH_EST_BUF_SIZE];
 	Word16 pitch_ref_buf[PITCH_EST_BUF_SIZE];
+	/* e_p() is a pure function of its 301-sample input window; the
+	   pitch buffer slides by FRAME per encode(), so the look-ahead
+	   results of previous frames are the current-frame results.  Cache
+	   them (bit-exact: same inputs, same pure function). */
+	Word16 e_p_cache[3][203];
+	int e_p_cache_valid[3];
 	Word32 dc_rmv_mem;
 	Cmplx16 fft_buf[FFTLENGTH];
 	Word16 pe_lpf_mem[PE_LPF_ORD];

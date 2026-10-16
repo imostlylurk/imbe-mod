@@ -20,6 +20,7 @@
  */
 
 
+#include <string.h>
 #include "typedef.h"
 #include "globals.h"
 #include "imbe.h"
@@ -67,14 +68,37 @@ void imbe_vocoder::pitch_est_init(void)
 {
 	prev_pitch = prev_prev_pitch = 158; // 100
 	prev_e_p = prev_prev_e_p = 0;
+	e_p_cache_valid[0] = e_p_cache_valid[1] = e_p_cache_valid[2] = 0;
 }
 
 
 
 Word32 imbe_vocoder::autocorr(Word16 *sigin, Word16 shift, Word16 scale_shift)
 {
-	Word32 L_sum;
 	Word16 i;
+	Word32 L_sum;
+
+	/* Fast path (bit-exact by construction): for |sigin[i]| <= 32767
+	   L_mult never saturates (|2ab| < 2^31), and if the absolute-sum
+	   bound 2*sum|ab| fits in int32 then no intermediate L_add can
+	   saturate either, so the saturating chain equals the exact
+	   integer sum.  Exact sum + bound in one branch-free pass. */
+	if (scale_shift == 0)
+	{
+		const int16_t *a = sigin;
+		const int16_t *b = sigin + shift;
+		int n = PITCH_EST_FRAME - shift;
+		int64_t sum = 0, abssum = 0;
+
+		for (i = 0; i < n; i++)
+		{
+			int32_t p = (int32_t)a[i] * b[i]; /* |p| <= 2^30 */
+			sum += p;
+			abssum += (p < 0 ? -p : p);
+		}
+		if ((abssum << 1) <= (int64_t)MAX_32)
+			return (Word32)(sum << 1); /* == L_mult chain, no saturation */
+	}
 
 	L_sum = 0;
 	for(i = 0; i < PITCH_EST_FRAME - shift; i++)
@@ -195,8 +219,30 @@ void imbe_vocoder::pitch_est(IMBE_PARAM *imbe_param, Word16 *frames_buf)
 	Word16 cef_est, cef, p0_est, p0, p1, p2, p1_max_index, p2_max_index, e1p1_e2p2_est; 
         Word16 e_p_arr2_min[203];
 
+	// Slide the e_p() result cache: what were look-ahead windows are
+	// now the current/look-ahead windows of this frame.
+	{
+		Word16 tmp203[203];
+		int tv;
+		memcpy(tmp203, e_p_cache[0], sizeof(tmp203));
+		memcpy(e_p_cache[0], e_p_cache[1], sizeof(tmp203));
+		memcpy(e_p_cache[1], e_p_cache[2], sizeof(tmp203));
+		memcpy(e_p_cache[2], tmp203, sizeof(tmp203));
+		tv = e_p_cache_valid[0];
+		e_p_cache_valid[0] = e_p_cache_valid[1];
+		e_p_cache_valid[1] = e_p_cache_valid[2];
+		e_p_cache_valid[2] = 0;
+	}
+
 	// Calculate E(p) function for current and two future frames
-	e_p(&frames_buf[0], e_p_arr0);
+	if (e_p_cache_valid[0])
+		memcpy(e_p_arr0, e_p_cache[0], sizeof(e_p_arr0));
+	else
+	{
+		e_p(&frames_buf[0], e_p_arr0);
+		memcpy(e_p_cache[0], e_p_arr0, sizeof(e_p_arr0));
+		e_p_cache_valid[0] = 1;
+	}
 
 	// Look-Back Pitch Tracking
 	min_index = HI_BYTE(min_max_tbl[prev_pitch]);
@@ -227,8 +273,22 @@ void imbe_vocoder::pitch_est(IMBE_PARAM *imbe_param, Word16 *frames_buf)
 
 
 	// Look-Ahead Pitch Tracking
-	e_p(&frames_buf[FRAME],     e_p_arr1);
-	e_p(&frames_buf[2 * FRAME], e_p_arr2);
+	if (e_p_cache_valid[1])
+		memcpy(e_p_arr1, e_p_cache[1], sizeof(e_p_arr1));
+	else
+	{
+		e_p(&frames_buf[FRAME], e_p_arr1);
+		memcpy(e_p_cache[1], e_p_arr1, sizeof(e_p_arr1));
+		e_p_cache_valid[1] = 1;
+	}
+	if (e_p_cache_valid[2])
+		memcpy(e_p_arr2, e_p_cache[2], sizeof(e_p_arr2));
+	else
+	{
+		e_p(&frames_buf[2 * FRAME], e_p_arr2);
+		memcpy(e_p_cache[2], e_p_arr2, sizeof(e_p_arr2));
+		e_p_cache_valid[2] = 1;
+	}
 
 	p0_est = p0 = 0;
 	cef_est = e_p_arr0[p0] + e_p_arr1[p0] + e_p_arr2[p0];
