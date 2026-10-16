@@ -156,11 +156,28 @@ int main(int argc, char **argv)
 
     if (!strcmp(argv[1], "--decode"))
     {
-        size_t n;
-        uint8_t *data = (uint8_t *)load_raw(argv[2], &n); /* byte pairs ok */
+        /* frames file: raw BYTES, 11 per frame - must not go through
+           the int16 sample loader (that halves the frame count and
+           strides frames, decoding only every other frame) */
+        FILE *fin = fopen(argv[2], "rb");
+        if (!fin)
+        {
+            perror(argv[2]);
+            return 1;
+        }
+        fseek(fin, 0, SEEK_END);
+        long sz = ftell(fin);
+        fseek(fin, 0, SEEK_SET);
+        uint8_t *data = malloc(sz);
+        if (fread(data, 1, sz, fin) != (size_t)sz)
+        {
+            fprintf(stderr, "short read\n");
+            return 1;
+        }
+        fclose(fin);
         FILE *f = fopen(argv[3], "wb");
         void *v = imbe_new();
-        size_t frames = n / 11;
+        size_t frames = sz / 11;
         int16_t out[160];
         for (size_t i = 0; i < frames; i++)
         {
@@ -168,6 +185,7 @@ int main(int argc, char **argv)
             fwrite(out, 2, 160, f);
         }
         fclose(f);
+        free(data);
         fprintf(stderr, "%s: %zu frames\n", argv[3], frames);
         return 0;
     }
