@@ -1,0 +1,1 @@
+/usr/bin/c++ -Wl,--dependency-file=CMakeFiles/imbebench.dir/link.d CMakeFiles/imbebench.dir/tests/imbebench.c.o -o imbebench  libimbe.a -lm
